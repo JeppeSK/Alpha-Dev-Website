@@ -2,6 +2,29 @@ import Link from 'next/link'
 import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
 import {useState} from 'react'
 
+const hackerEffect = (event) => {
+
+  let iterations = 0;
+
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+  const interval = setInterval(() => { 
+    event.target.innerText = event.target.innerText.split("")
+      .map((letter, index) => {
+        if (index < iterations) {
+          return event.target.dataset.value[index];
+        }
+      
+        return letters[Math.floor(Math.random() * 26)]
+    })
+    .join("");
+
+    if(iterations >= event.target.dataset.value.length) clearInterval(interval);
+
+    iterations += 1 / 3;
+  }, 30)
+}
+
 const Navbar = () => {
     const [nav, setNav] = useState(false)
 
@@ -13,9 +36,8 @@ const Navbar = () => {
         <div className='fixed left-0 top-0 w-full z-10 ease-in duration-300'>
             <div className='max-w-[1240px] m-auto flex justify-between 
             items-center p-4 text-white'>
-                <Link href="/">
-                <h1 className='font-bold text-4xl'>Navbar</h1>
-                </Link>
+
+                <h1 data-value="Jeppe Skjødt Knudsen" className='font-bold text-4xl' onMouseOver={hackerEffect}>Jeppe Skjødt Knudsen</h1>
 
                 <ul className='hidden sm:flex'>
                   <li className="p-4">
