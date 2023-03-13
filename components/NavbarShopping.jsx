@@ -1,5 +1,7 @@
 import Link from 'next/link'
-import {AiOutlineMenu, AiOutlineClose, FiShoppingBag, BsPerson} from 'react-icons/ai'
+import {AiOutlineMenu, AiOutlineClose} from 'react-icons/ai'
+import { FiShoppingBag } from "react-icons/fi"
+import { BsPerson } from "react-icons/bs"
 import {useEffect, useState} from 'react'
 
 const NavbarShopping = () => {
@@ -40,9 +42,11 @@ const NavbarShopping = () => {
                     <FiShoppingBag size={20}/>
                    </div>
                   </li>
+                  <li className='p-4'>
                     <div>
                     <BsPerson size={20}/>
                     </div>
+                  </li>
                 </ul> 
 
                 {/* Mobile Button */}
